@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var mongodb = require('mongodb');
-var config = require('./env.json')[process.env.NODE_ENV || 'development'] || {};
+//var config = require('./env.json')[process.env.NODE_ENV || 'development'] || {};
 
 // We need to work with "MongoClient" interface in order to connect to a mongodb server.
 var MongoClient = mongodb.MongoClient;
@@ -10,7 +10,7 @@ var MongoClient = mongodb.MongoClient;
 // var url = 'mongodb://' + process.env.IP + '/burfield-url-shortener-microservice';
 
 // mLab database
-var url = process.env.MONGOLAB_URI || config.MONGO_URI;
+var url = process.env.MONGOLAB_URI;// || config.MONGO_URI;
 
 app.get('/new/*', function (req, res) {
     
